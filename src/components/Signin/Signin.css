@@ -1,0 +1,17 @@
+.Signin-container {
+  display: flex;
+  justify-content: center;
+}
+
+.Signin-form {
+  text-align: center;
+}
+
+.Signin-form label {
+  display: block;
+}
+
+.Signin-input {
+  font-size: 2rem;
+  margin: 1rem;
+}

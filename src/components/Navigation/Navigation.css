@@ -1,0 +1,28 @@
+.Navigation {
+  display: flex;
+  background-color: #ffb619;
+  padding: .5rem 1rem;
+}
+
+.Navigation-brand {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000;
+
+}
+
+.Navigation-buttons {
+  margin-left: auto;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.Navigation-button {
+  padding: .6rem;
+  margin: 0 .5rem;
+  color: #fff;
+  background-color: #000;
+  border: none;
+}

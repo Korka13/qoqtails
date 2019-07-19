@@ -1,0 +1,42 @@
+.Qoqtail {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #ffb619;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #000;
+  color: #fff;
+}
+
+.Qoqtail-title {
+  text-align: center;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.Qoqtail-image {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.Qoqtail-image img {
+  width: 150px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+}
+
+.Qoqtail-ingredient-container{
+  border-bottom: 1px solid #fff;
+  padding-top: .5rem;
+}
+.Qoqtail-ingredient, .Qoqtail-measure {
+  display: inline-block;
+  width: 50%;
+}
+
+.Qoqtail-glass {
+  margin-top: 2rem;
+  text-align: center;
+}
