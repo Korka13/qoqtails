@@ -6,6 +6,7 @@ import Signin from './components/Signin/Signin';
 import SearchForm from './components/SearchForm/SearchForm';
 import ListResults from './components/ListResults/ListResults';
 import MyQoqtails from './components/MyQoqtails/MyQoqtails';
+import Footer from './components/Footer/Footer';
 
 import './App.css';
 
@@ -220,48 +221,53 @@ class App extends Component {
 
       return (
         <div className="App">
-          <Navigation 
-          changeRoute={changeRoute} 
-          isSignedIn={isSignedIn} 
-          route={route} 
-          />
+          <div className="page-container">
+            <div className="content-wrap">
+              <Navigation 
+              changeRoute={changeRoute} 
+              isSignedIn={isSignedIn} 
+              route={route} 
+              />
 
-          { route === 'home' 
-            ? <div>
-                <SearchForm 
-                  onInputChange={onInputChange} 
-                />
-                <ListResults 
-                  data={results} 
-                  saveQoqtail={saveQoqtail} 
-                  user={user} 
-                  deleteQoqtail={deleteQoqtail} 
-                />
+              { route === 'home' 
+                ? <div>
+                    <SearchForm 
+                      onInputChange={onInputChange} 
+                    />
+                    <ListResults 
+                      data={results} 
+                      saveQoqtail={saveQoqtail} 
+                      user={user} 
+                      deleteQoqtail={deleteQoqtail} 
+                    />
+                  </div>
+                : (
+                  route === 'savedQoqtails'
+                  ? <MyQoqtails 
+                      user={user} 
+                      deleteQoqtail={deleteQoqtail} 
+                      saveQoqtail={saveQoqtail} 
+                      onSelectChange={onSelectChange} 
+                    />
+                  : <Signin 
+                      changeRoute={changeRoute} 
+                      loadUser={loadUser} 
+                      route={route} 
+                      onPasswordChange={onPasswordChange} 
+                      onUsernameChange={onUsernameChange} 
+                      onSubmitSignIn={onSubmitSignIn} 
+                      signInUrl={signInUrl} 
+                      registerUrl={registerUrl} 
+                      signInError={signInError} 
+                    />
+                  )
+                }
+                <BackToTop>
+                  <span style={{color: 'white'}}>︿</span>
+                </BackToTop>
               </div>
-            : (
-              route === 'savedQoqtails'
-              ? <MyQoqtails 
-                  user={user} 
-                  deleteQoqtail={deleteQoqtail} 
-                  saveQoqtail={saveQoqtail} 
-                  onSelectChange={onSelectChange} 
-                />
-              : <Signin 
-                  changeRoute={changeRoute} 
-                  loadUser={loadUser} 
-                  route={route} 
-                  onPasswordChange={onPasswordChange} 
-                  onUsernameChange={onUsernameChange} 
-                  onSubmitSignIn={onSubmitSignIn} 
-                  signInUrl={signInUrl} 
-                  registerUrl={registerUrl} 
-                  signInError={signInError} 
-                />
-              )
-            }
-            <BackToTop>
-              <span style={{color: 'white'}}>︿</span>
-            </BackToTop>
+            <Footer />
+          </div>
         </div>
       );
   }
