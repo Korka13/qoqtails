@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import BackToTop from "react-back-to-top-button";
 
 import Navigation from './components/Navigation/Navigation';
 import Signin from './components/Signin/Signin';
@@ -103,6 +104,10 @@ class App extends Component {
     }, 200);
   }
 
+  onSelectChange = (event) => {
+    this.getQoqtail(event.target.value)
+  }
+
   searchQoqtail = (searchBy, term) => {
     if (term.length > 0) {
       fetch(serverUrl + searchBy + term)
@@ -205,10 +210,10 @@ class App extends Component {
             loadUser,
             saveQoqtail,
             deleteQoqtail,
-            getQoqtail,
             onPasswordChange,
             onUsernameChange,
-            onSubmitSignIn
+            onSubmitSignIn,
+            onSelectChange
           } = this;
 
       return (
@@ -222,36 +227,39 @@ class App extends Component {
           { route === 'home' 
             ? <div>
                 <SearchForm 
-                onInputChange={onInputChange} 
+                  onInputChange={onInputChange} 
                 />
                 <ListResults 
-                data={results} 
-                saveQoqtail={saveQoqtail} 
-                user={user} 
-                deleteQoqtail={deleteQoqtail} 
+                  data={results} 
+                  saveQoqtail={saveQoqtail} 
+                  user={user} 
+                  deleteQoqtail={deleteQoqtail} 
                 />
               </div>
             : (
               route === 'savedQoqtails'
               ? <MyQoqtails 
-                user={user} 
-                deleteQoqtail={deleteQoqtail} 
-                getQoqtail={getQoqtail} 
-                saveQoqtail={saveQoqtail} 
+                  user={user} 
+                  deleteQoqtail={deleteQoqtail} 
+                  saveQoqtail={saveQoqtail} 
+                  onSelectChange={onSelectChange} 
                 />
               : <Signin 
-                changeRoute={changeRoute} 
-                loadUser={loadUser} 
-                route={route} 
-                onPasswordChange={onPasswordChange} 
-                onUsernameChange={onUsernameChange} 
-                onSubmitSignIn={onSubmitSignIn} 
-                signInUrl={signInUrl} 
-                registerUrl={registerUrl} 
-                signInError={signInError} 
+                  changeRoute={changeRoute} 
+                  loadUser={loadUser} 
+                  route={route} 
+                  onPasswordChange={onPasswordChange} 
+                  onUsernameChange={onUsernameChange} 
+                  onSubmitSignIn={onSubmitSignIn} 
+                  signInUrl={signInUrl} 
+                  registerUrl={registerUrl} 
+                  signInError={signInError} 
                 />
               )
             }
+            <BackToTop>
+              <span style={{color: 'white'}}>︿</span>
+            </BackToTop>
         </div>
       );
   }

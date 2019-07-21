@@ -2,15 +2,17 @@ import React from 'react';
 
 import Qoqtail from '../Qoqtail/Qoqtail'
 
-const MyQoqtails = ({ getQoqtail,saveQoqtail, deleteQoqtail, user }) => {
+const MyQoqtails = ({ saveQoqtail, deleteQoqtail, user, onSelectChange }) => {
       return (
         <div className="MyQoqtails">
           {
             user.currentQoqtail && user.currentQoqtail.id
             ? <div>
+              <select onChange={onSelectChange}>
                 {
-                  user.qoqtails.map(qoqtail => <button key={qoqtail.id} onClick={() => getQoqtail(qoqtail.id)}>{qoqtail.name}</button>)
+                  user.qoqtails.map(qoqtail => <option key={qoqtail.id} value={qoqtail.id}>{qoqtail.name}</option>)
                 }
+                </select>
                 <Qoqtail 
                   qoqtail={user.currentQoqtail} 
                   user={user} 
