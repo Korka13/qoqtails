@@ -8,6 +8,6 @@ body {
   color: #fff;
 }
 
-button {
+button, input, select {
   font-family: 'Comfortaa', cursive;
 }

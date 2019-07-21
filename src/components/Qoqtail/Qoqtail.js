@@ -31,8 +31,8 @@ const Qoqtail = ({qoqtail, saveQoqtail, user, deleteQoqtail}) => {
         <div className="Qoqtail-glass">Serve: {qoqtail.glass}</div>
         {
           user.qoqtails && user.qoqtails.length && (user.qoqtails.some(e => e.id === qoqtail.id))
-          ? <button onClick={() => deleteQoqtail(qoqtail.id)}>delete</button>
-          : <button onClick={() => saveQoqtail(qoqtail.id, qoqtail.name)}>Save</button>
+          ? <button className="Qoqtail-button" onClick={() => deleteQoqtail(qoqtail.id)}>Delete</button>
+          : <button className="Qoqtail-button" onClick={() => saveQoqtail(qoqtail.id, qoqtail.name)}>Save</button>
         }
       </div>
     </div>

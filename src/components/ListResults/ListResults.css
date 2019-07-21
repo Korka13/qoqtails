@@ -3,5 +3,6 @@
 }
 
 .ListResults-error {
+  text-align: center;
   color: #ffb619;
 }

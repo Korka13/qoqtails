@@ -10,7 +10,7 @@ const MyQoqtails = ({ saveQoqtail, deleteQoqtail, user, onSelectChange }) => {
           {
             user.currentQoqtail && user.currentQoqtail.id
             ? <div>
-              <select onChange={onSelectChange}>
+              <select className="MyQoqtails-select" onChange={onSelectChange}>
                 {
                   user.qoqtails.map(qoqtail => <option key={qoqtail.id} value={qoqtail.id}>{qoqtail.name}</option>)
                 }
@@ -22,7 +22,7 @@ const MyQoqtails = ({ saveQoqtail, deleteQoqtail, user, onSelectChange }) => {
                   saveQoqtail={saveQoqtail}
                 />
               </div>
-            : <h1>You have no saves yet!</h1>
+            : <h2 className="MyQoqtails-error">You have no saves yet!</h2>
           }
         </div>
       );

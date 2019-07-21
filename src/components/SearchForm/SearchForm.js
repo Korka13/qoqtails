@@ -5,7 +5,7 @@ import './SearchForm.css';
 const SearchForm = ({onInputChange}) => {
   return (
     <div className="SearchForm">
-      <input type='text' onChange={onInputChange} />
+      <input className="SearchForm-input" type='text' placeholder="Just start typing..." onChange={onInputChange} />
     </div>
   );
 }

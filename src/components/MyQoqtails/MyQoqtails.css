@@ -1,3 +1,19 @@
 .MyQoqtails {
   margin: 1rem;
 }
+
+.MyQoqtails-select {
+  display: table;
+  margin: 1.5rem auto;
+  padding: .5rem 1rem;
+  background-color: #fff;
+  font-size: 1.2rem;
+  border: 2px solid #ffb619;
+  border-radius: 5px;
+}
+
+.MyQoqtails-error {
+  text-align: center;
+  color: #ffb619;
+  margin-top: 4rem;
+}

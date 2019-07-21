@@ -9,6 +9,7 @@
 
 .Navigation-brand {
   margin: 0;
+  margin-left: .5rem;
   /* font-family: 'Righteous', cursive; */
   font-size: 1.5rem;
   font-weight: 700;
