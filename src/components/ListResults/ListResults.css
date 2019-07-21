@@ -1,3 +1,7 @@
 .ListResults {
   margin: 1rem;
 }
+
+.ListResults-error {
+  color: #ffb619;
+}

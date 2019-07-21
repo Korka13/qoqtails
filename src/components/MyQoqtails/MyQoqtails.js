@@ -2,6 +2,8 @@ import React from 'react';
 
 import Qoqtail from '../Qoqtail/Qoqtail'
 
+import './MyQoqtails.css';
+
 const MyQoqtails = ({ saveQoqtail, deleteQoqtail, user, onSelectChange }) => {
       return (
         <div className="MyQoqtails">

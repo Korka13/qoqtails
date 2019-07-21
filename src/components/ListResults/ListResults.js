@@ -9,7 +9,7 @@ const ListResults = ({data, saveQoqtail, user, deleteQoqtail}) => {
     <div className="ListResults">
       {
         (data === null) 
-        ? <h2 style={{color: "red"}}>Sorry, nothing found</h2>
+        ? <h2 className="ListResults-error">Sorry, nothing found</h2>
         : data.map((cocktail, i) => 
           <Qoqtail 
             key={i} 

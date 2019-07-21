@@ -98,6 +98,8 @@ class App extends Component {
   onInputChange = (event) => {
     let input = event.target.value;
     input = input.replace(/^\s+/, '');
+    input = input.replace(/\//g, '');
+    input = input.replace(/\\/g, '');
     clearTimeout(timeout);
     timeout = setTimeout(() => {
       this.searchQoqtail(searchByName, input)

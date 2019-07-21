@@ -16,34 +16,36 @@ const Signin = (props) => {
         } = props
 
   const title = route === 'signin' ? 'Sign In' : 'Register';
-  const oppositeRoute = route === 'signin' ? 'Register' : 'Sign In';
+  const oppositeRouteTitle = route === 'signin' ? "Don't have an account yet?" : 'Already have an account?';
   const oppositeRouteCommand = route === 'signin' ? 'register' : 'signin';
   const submitUrl = route === 'signin' ? signInUrl : registerUrl;
 
       return (
         <div className="Signin-container">
           <div className="Signin-form">
-            <h1>{title}</h1>
+            <h1 className="Signin-title">{title}</h1>
             {
-              signInError.length ? <p style={{color: 'red'}}>{signInError}</p> : null
+              signInError.length ? <p className="Signin-error">{signInError}</p> : null
             }
-              <div className="Signin-input">                    
+              <div className="Signin-input-container">                    
                 <input 
+                className="Signin-input"
                 type="text" 
-                placeholder="username" 
+                placeholder="username..." 
                 onChange={onUsernameChange} 
                 />
               </div>
 
-              <div className="Signin-input">
+              <div className="Signin-input-container">
                 <input 
+                className="Signin-input"
                 type="password" 
-                placeholder="password" 
+                placeholder="password..." 
                 onChange={onPasswordChange} />
               </div>
 
-              <button onClick={() => onSubmitSignIn(submitUrl)} type="submit">{title}</button>
-              <p onClick={() => changeRoute(oppositeRouteCommand)} className="">{oppositeRoute}</p>
+              <button className="Signin-submit" onClick={() => onSubmitSignIn(submitUrl)} type="submit">{title}</button>
+              <p onClick={() => changeRoute(oppositeRouteCommand)} className="Signin-changeroute">{oppositeRouteTitle}</p>
             </div>
         </div>
 
