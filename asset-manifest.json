@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/qoqtails/static/css/main.935be14c.chunk.css",
+    "main.js": "/qoqtails/static/js/main.55d2b273.chunk.js",
+    "main.js.map": "/qoqtails/static/js/main.55d2b273.chunk.js.map",
+    "runtime~main.js": "/qoqtails/static/js/runtime~main.ef29d4bf.js",
+    "runtime~main.js.map": "/qoqtails/static/js/runtime~main.ef29d4bf.js.map",
+    "static/js/2.bb2344ff.chunk.js": "/qoqtails/static/js/2.bb2344ff.chunk.js",
+    "static/js/2.bb2344ff.chunk.js.map": "/qoqtails/static/js/2.bb2344ff.chunk.js.map",
+    "index.html": "/qoqtails/index.html",
+    "precache-manifest.84ac51d9228472c7036bd593516345af.js": "/qoqtails/precache-manifest.84ac51d9228472c7036bd593516345af.js",
+    "service-worker.js": "/qoqtails/service-worker.js",
+    "static/css/main.935be14c.chunk.css.map": "/qoqtails/static/css/main.935be14c.chunk.css.map",
+    "static/media/github.svg": "/qoqtails/static/media/github.2fb3d4c6.svg"
+  }
+}
