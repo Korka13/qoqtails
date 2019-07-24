@@ -10,7 +10,7 @@ import Footer from './components/Footer/Footer';
 
 import './App.css';
 
-const serverUrl = `http://${process.env.REACT_APP_SERVER_IP}:8080/`
+const serverUrl = process.env.REACT_APP_SERVER_URL;
 const getQoqtailById = "getqoqtailbyid/";
 const searchByName= "searchqoqtailbyname/";
 const addQoqtailUrl = 'addqoqtail/'
