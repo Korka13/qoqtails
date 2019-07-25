@@ -9,10 +9,11 @@ const Signin = (props) => {
           changeRoute,
           onPasswordChange,
           onUsernameChange,
-          onSubmitSignIn,
+          submitSignIn,
           signInUrl,
           registerUrl,
-          signInError
+          signInError,
+          handleKeyDown
         } = props
 
   const title = route === 'signin' ? 'Sign In' : 'Register';
@@ -21,7 +22,7 @@ const Signin = (props) => {
   const submitUrl = route === 'signin' ? signInUrl : registerUrl;
 
       return (
-        <div className="Signin-container">
+        <div className="Signin">
           <div className="Signin-form">
             <h1 className="Signin-title">{title}</h1>
             {
@@ -29,22 +30,25 @@ const Signin = (props) => {
             }
               <div className="Signin-input-container">                    
                 <input 
-                className="Signin-input"
-                type="text" 
-                placeholder="username..." 
-                onChange={onUsernameChange} 
+                  className="Signin-input"
+                  type="text" 
+                  placeholder="username..." 
+                  onChange={onUsernameChange} 
+                  onKeyDown={handleKeyDown} 
                 />
               </div>
 
               <div className="Signin-input-container">
                 <input 
-                className="Signin-input"
-                type="password" 
-                placeholder="password..." 
-                onChange={onPasswordChange} />
+                  className="Signin-input"
+                  type="password" 
+                  placeholder="password..." 
+                  onChange={onPasswordChange} 
+                  onKeyDown={handleKeyDown} 
+                />
               </div>
 
-              <button className="Signin-submit" onClick={() => onSubmitSignIn(submitUrl)} type="submit">{title}</button>
+              <button className="Signin-submit" onClick={() => submitSignIn(submitUrl)} type="submit">{title}</button>
               <p onClick={() => changeRoute(oppositeRouteCommand)} className="Signin-changeroute">{oppositeRouteTitle}</p>
             </div>
         </div>

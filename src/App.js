@@ -60,7 +60,17 @@ class App extends Component {
     this.setState({signInPassword: event.target.value})
   }
 
-  onSubmitSignIn = (loginMode) => {
+  handleKeyDown = (event) => {
+    if (event.which === 13) {
+      if (this.state.route === 'signin') {
+        this.submitSignIn(signInUrl)
+      } else if (this.state.route === 'register'){
+        this.submitSignIn(registerUrl)
+      }
+    }
+  }
+
+  submitSignIn = (loginMode) => {
     fetch(serverUrl + loginMode, {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
@@ -215,8 +225,9 @@ class App extends Component {
             deleteQoqtail,
             onPasswordChange,
             onUsernameChange,
-            onSubmitSignIn,
-            onSelectChange
+            submitSignIn,
+            onSelectChange,
+            handleKeyDown
           } = this;
 
       return (
@@ -255,10 +266,11 @@ class App extends Component {
                       route={route} 
                       onPasswordChange={onPasswordChange} 
                       onUsernameChange={onUsernameChange} 
-                      onSubmitSignIn={onSubmitSignIn} 
+                      submitSignIn={submitSignIn} 
                       signInUrl={signInUrl} 
                       registerUrl={registerUrl} 
                       signInError={signInError} 
+                      handleKeyDown={handleKeyDown} 
                     />
                   )
                 }

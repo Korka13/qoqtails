@@ -3,10 +3,12 @@
   flex-direction: column;
   border: 3px solid #ffb619;
   border-radius: 5px;
+  margin: 0 auto;
   margin-bottom: 2rem;
   padding: 1rem;
   background-color: #000;
   color: #fff;
+  max-width: 300px;
 }
 
 .Qoqtail-title {
@@ -50,4 +52,16 @@
   padding: .5rem 1rem;
   border: 1px solid #fff;
   border-radius: 3px;
+}
+
+@media (min-width: 700px) {
+  .Qoqtail {
+    max-width: 350px;
+  }
+}
+
+@media (min-width: 900px) {
+  .Qoqtail {
+    max-width: 400px;
+  }
 }

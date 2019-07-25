@@ -4,10 +4,16 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 3rem;
-  line-height: 3rem;
+  height: 5rem;
 }
 
-.Footer img {
-  height: 50%;
+.Footer-helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.Footer img, .Footer a {
+  vertical-align: middle;
+  height: 2.5rem;
 }

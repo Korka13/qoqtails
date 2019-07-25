@@ -1,10 +1,11 @@
-.Signin-title {
-  margin: 2rem 0;
-}
-
-.Signin-container {
+.Signin {
+  margin-top: 3rem;
   display: flex;
   justify-content: center;
+}
+
+.Signin-title {
+  margin: 2rem 0;
 }
 
 .Signin-form {
