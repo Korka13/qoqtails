@@ -151,61 +151,67 @@ class App extends Component {
   }
 
   saveQoqtail = (id, name) => {
-    fetch(serverUrl + addQoqtailUrl, {
-      method: 'post',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          id: this.state.user.id,
-          qoqtailId: id,
-          name: name
-        })})
-    .then(response => response.json())
-    .then(response => {
-      this.setState(prevState => {
-        return {
-          user: {
-            ...prevState.user,
-            qoqtails: response
-          }
-        }
-      })
-      this.getQoqtail(response[0].id)
-    })
-    .catch(err => console.log(err));
-  }
-
-  deleteQoqtail = (id) => {
-    fetch(serverUrl + deleteQoqtailUrl, {
-      method: 'delete',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          id: this.state.user.id,
-          qoqtailId: id,
-        })})
-    .then(response => response.json())
-    .then(response => {
-      if (response.length) {
-        this.getQoqtail(response[0].id)
-      } else {
+    return new Promise(resolve => {
+      fetch(serverUrl + addQoqtailUrl, {
+        method: 'post',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            id: this.state.user.id,
+            qoqtailId: id,
+            name: name
+          })})
+      .then(response => response.json())
+      .then(response => {
         this.setState(prevState => {
           return {
             user: {
               ...prevState.user,
-              currentQoqtail: {}
+              qoqtails: response
             }
           }
         })
-      }
-      this.setState(prevState => {
-        return {
-          user: {
-            ...prevState.user,
-            qoqtails: response
-          }
-        }
+        this.getQoqtail(response[0].id)
       })
+      .then(() => resolve())
+      .catch(err => console.log(err));
+    })    
+  }
+
+  deleteQoqtail = (id) => {
+    return new Promise(resolve => {
+      fetch(serverUrl + deleteQoqtailUrl, {
+        method: 'delete',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            id: this.state.user.id,
+            qoqtailId: id,
+          })})
+      .then(response => response.json())
+      .then(response => {
+        if (response.length) {
+          this.getQoqtail(response[0].id)
+        } else {
+          this.setState(prevState => {
+            return {
+              user: {
+                ...prevState.user,
+                currentQoqtail: {}
+              }
+            }
+          })
+        }
+        this.setState(prevState => {
+          return {
+            user: {
+              ...prevState.user,
+              qoqtails: response
+            }
+          }
+        })
+      })
+      .then(() => resolve())
+      .catch(err => console.log(err));
     })
-    .catch(err => console.log(err));
   }
 
   render() {

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Btn from '../Btn/Btn';
+
 import './Qoqtail.css';
 
 const Qoqtail = ({qoqtail, saveQoqtail, user, deleteQoqtail}) => {
@@ -31,8 +33,8 @@ const Qoqtail = ({qoqtail, saveQoqtail, user, deleteQoqtail}) => {
         <div className="Qoqtail-glass">Serve: {qoqtail.glass}</div>
         {
           user.qoqtails && user.qoqtails.length && (user.qoqtails.some(e => e.id === qoqtail.id))
-          ? <button className="Qoqtail-button" onClick={() => deleteQoqtail(qoqtail.id)}>Delete</button>
-          : <button className="Qoqtail-button" onClick={() => saveQoqtail(qoqtail.id, qoqtail.name)}>Save</button>
+          ? <Btn name='Delete' cssClass="Qoqtail-button" action={() => deleteQoqtail(qoqtail.id)} />
+          : <Btn name='Save' cssClass="Qoqtail-button" action={() => saveQoqtail(qoqtail.id, qoqtail.name)} />
         }
       </div>
     </div>
