@@ -17,6 +17,7 @@ const addQoqtailUrl = 'addqoqtail/'
 const deleteQoqtailUrl = 'deleteqoqtail/'
 const signInUrl = "signin/";
 const registerUrl = "register/";
+const wakeUpUrl = "wakeup/";
 let timeout = null;
 
 const initialState = {
@@ -39,6 +40,17 @@ class App extends Component {
   constructor() {
     super();
     this.state = initialState;
+  }
+
+  componentDidMount() {
+    this.wakeUp();
+  }
+
+  wakeUp = () => {
+    fetch(serverUrl + wakeUpUrl)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.log(err));
   }
 
   loadUser = (data) => {
