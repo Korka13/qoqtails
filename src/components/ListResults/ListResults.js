@@ -10,9 +10,9 @@ const ListResults = ({data, saveQoqtail, user, deleteQoqtail}) => {
       {
         (data === null) 
         ? <h2 className="ListResults-error">Sorry, nothing found</h2>
-        : data.map((cocktail, i) => 
+        : data.map((cocktail) => 
           <Qoqtail 
-            key={i} 
+            key={cocktail.id} 
             qoqtail={cocktail} 
             saveQoqtail={saveQoqtail} 
             user={user} 
